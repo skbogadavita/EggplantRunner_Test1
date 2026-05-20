@@ -1,0 +1,28 @@
+name: "RNDash_Smoke"
+
+# Configure which branch that will trigger Eggplant DAI GitHub Action
+# on:
+#  push:
+#    branches:
+#      - main 
+#  pull_request:
+#    branches:
+#      - main
+
+jobs:
+  Run-DAI-Test-Configuration:
+    strategy: # Optional configuration by using matrix strategy
+      max-parallel: 1 # To set the maximum number of jobs that can run simultaneously 
+      matrix:
+        os: [windows-latest] # Operating support by Eggplant DAI GitHub Action
+    runs-on: ${{ matrix.os }} # Provide OS matrix
+    name: Run Test Configuration
+    steps:
+      - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
+      - name: Eggplant Runner
+ 	 uses: keysight-eggplant/eggplant-github-action@v1.0.22
+        with:
+          serverURL: "https://sea1w3cernu01.davita.corp:8000" # Required. Details below
+          testConfigID: "e9ad7b93-4e6d-4dcc-a2bb-dcfae2ea19d5" # Required. Details below
+          clientID: "client:dai:api:integration:92eb9faf-7149-45e2-ad06-a854c29ec853" # Required. Details below
+          clientSecret: "SzPuiy2TiSURYDOuXkVPaTn30C7lgXep" # Required. Details below
