@@ -20,7 +20,7 @@ jobs:
     steps:
       - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
       - name: Eggplant Runner
- 	 uses: keysight-eggplant/eggplant-github-action@v1.0.22
+        uses: keysight-eggplant/eggplant-github-action@v1.0.22
         with:
           serverURL: "https://sea1w3cernu01.davita.corp:8000" # Required. Details below
           testConfigID: "e9ad7b93-4e6d-4dcc-a2bb-dcfae2ea19d5" # Required. Details below
